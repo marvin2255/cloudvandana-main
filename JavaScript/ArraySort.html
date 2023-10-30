@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descending Sort</title>
+</head>
+<body>
+    <h1>Descending Sort</h1>
+    <p>Enter numbers separated by commas:</p>
+    <input type="text" id="inputArray" placeholder="e.g., 5, 2, 9, 1, 5, 6">
+    <button onclick="sortDescending()">Sort Descending</button>
+    <p><strong>Sorted Array (Descending):</strong></p>
+    <p id="sortedOutput"></p>
+
+    <script>
+        function sortDescending() {
+            const inputArray = document.getElementById("inputArray").value;
+            const numbers = inputArray.split(',').map(Number);
+            bubbleSortDescending(numbers);
+            document.getElementById("sortedOutput").textContent = numbers.join(', ');
+        }
+
+        function bubbleSortDescending(arr) {
+            let n = arr.length;
+            let swapped;
+
+            for(let i=0; i<n-1; i++){
+                swapped = false;
+                for(let j=0; j<n-1-i ; j++){
+                    if(arr[j]<arr[j+1]){
+                        let temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        swapped = true;
+                    }
+                }
+                // No need to go to another pass if no swapping done.
+                if(swapped == false) break;
+            }
+        }
+    </script>
+</body>
+</html>

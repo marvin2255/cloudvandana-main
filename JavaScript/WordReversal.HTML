@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Reversal</title>
+</head>
+<body>
+    <h1>Word reversal</h1>
+    <p>Enter a sentence and click the button to reverse each word:</p>
+
+    <!-- input fields and button -->
+    <input type="text" id="inputSentence" placeholder="Enter a sentence">
+    <button onclick="reverseWords()">Reverse</button>
+
+    <p><strong>Reversed sentence: </strong></p>
+    <p id="reversedOutput"></p>
+
+    <!-- Java script to perform the word reversal -->
+    <script>
+        function reverseWords() {
+            var inputSentence = document.getElementById("inputSentence").value;
+            var words = inputSentence.split(" ");
+            var reversedWords = [];
+
+            // Taking each word in the sentence and reversing it
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var reversedWord = "";
+
+                for (var j = word.length - 1; j >= 0; j--) {
+                    reversedWord += word[j];
+                }
+
+                reversedWords.push(reversedWord);
+            }
+
+            var reversedSentence = reversedWords.join(" ");
+            document.getElementById("reversedOutput").textContent =  reversedSentence;
+        }
+    </script>
+    
+</body>
+</html>
